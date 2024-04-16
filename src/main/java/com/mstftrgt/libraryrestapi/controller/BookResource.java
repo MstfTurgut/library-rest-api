@@ -24,7 +24,7 @@ public class BookResource {
         this.libRepo = libRepo;
     }
 
-    @GetMapping("/")
+    @GetMapping
     public ResponseEntity<List<Book>> findAllBooks(Pageable pageable) {
 
         Page<Book> page = libRepo.findAll(
@@ -50,7 +50,7 @@ public class BookResource {
         return ResponseEntity.ok(book.get());
     }
 
-    @PostMapping("/")
+    @PostMapping
     public ResponseEntity<Void> addBook(@RequestBody Book book, UriComponentsBuilder ucb) {
         Book savedBook = libRepo.save(book);
 

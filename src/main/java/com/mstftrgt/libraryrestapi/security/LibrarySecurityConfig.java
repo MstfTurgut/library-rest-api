@@ -30,6 +30,7 @@ public class LibrarySecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/me/borrowedBooks/{id}/return").hasRole("STUDENT")
                 )
                 .httpBasic(Customizer.withDefaults())
+                .formLogin(Customizer.withDefaults())
                 .csrf(AbstractHttpConfigurer::disable);
 
         return http.build();
